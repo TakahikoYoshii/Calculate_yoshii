@@ -31,39 +31,43 @@ public class convertCardinalNumber {
 	}
 
 	public String toHexNumber(int number) {
-		ArrayList<Character> hexNumberArray = new ArrayList<Character>();
+		ArrayList<String> hexNumberArray = new ArrayList<>();
 		StringBuilder sb = new StringBuilder();
 		do{
-			char hexNumber = convertHexNumber(number%16);
-			System.out.println(hexNumber);
-			hexNumberArray.add(hexNumber);
+			hexNumberArray = convertHexNumber(number%16, hexNumberArray);
 			number /= 16;
-			System.out.println(number);
 		}while(number > 0);
 		for(int i=hexNumberArray.size()-1 ; i>=0 ; i--){
 			sb.append(hexNumberArray.get(i));
 		}
 		return sb.toString();	
 	}
-	public Character convertHexNumber(int number){
+	public ArrayList<String> convertHexNumber(int number, ArrayList<String> hexNumber){
 		if(number < 10){
-			return (char)number;
+			hexNumber.add(Integer.toString(number));
+			return hexNumber;
 		}else{
 			switch(number){
 			case 10:
-				return 'a';
+				hexNumber.add("a");
+				return hexNumber;
 			case 11:
-				return 'b';
+				hexNumber.add("b");
+				return hexNumber;
 			case 12:
-				return 'c';
+				hexNumber.add("c");
+				return hexNumber;
 			case 13:
-				return 'd';
+				hexNumber.add("d");
+				return hexNumber;
 			case 14:
-				return 'e';
+				hexNumber.add("e");
+				return hexNumber;
 			case 15:
-				return 'f';
+				hexNumber.add("f");
+				return hexNumber;
 			default:
-				return null;
+				return hexNumber;
 			}
 		}
 	}

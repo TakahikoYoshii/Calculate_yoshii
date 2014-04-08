@@ -1,19 +1,19 @@
 package calculator;
 
 public class ActShisokuEnzan {
-	public double actEnzan(double x, double y, char op){
+	public double actEnzan(double x, double y, String op){
 		switch(op){
-		case '+':
+		case "+":
 			return pulus(x, y);
-		case '-':
+		case "-":
 			return minus(x, y);
-		case '×':
+		case "×":
 			return multi(x, y);
-		case '÷':
+		case "÷":
 			return divide(x, y);
-		case '%':
+		case "%": case "mod":
 			return mod(x, y);
-		case '^':
+		case "^": case "square":
 			return raisePower(x, y);
 		default:
 			return 0/0; 
